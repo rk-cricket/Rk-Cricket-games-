@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <!-- प्रीमियम फॉन्ट्स -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Teko:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>क्रिकेट गेम्स - RK Cricket Games</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #0d1b15;
+            /* 🏟️ एकदम असली और ओरिजिनल क्रिकेट स्टेडियम बैकग्राउंड */
+            background-image: url('https://images.unsplash.com/photo-1540747737956-3787293e9fc0?q=80&w=1200&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1;
+        }
+
+        /* प्रीमियम मेनू बार */
+        .navbar {
+            background: rgba(10, 30, 20, 0.95);
+            padding: 15px 0;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .navbar li {
+            margin: 0 20px;
+        }
+        .navbar li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+            position: relative;
+        }
+        .navbar li a:hover {
+            color: #39ff14;
+        }
+
+        /* 🟢 एक्टिव पेज (क्रिकेट गेम्स) के नीचे हरी लाइन */
+        .navbar li a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 100%;
+            height: 3px;
+            background-color: #39ff14;
+            border-radius: 2px;
+        }
+        .navbar li a.active {
+            color: #39ff14 !important;
+        }
+
+        /* मुख्य कंटेनर - कांच जैसा प्रभाव */
+        .container {
+            max-width: 900px;
+            margin: 100px auto 50px; 
+            padding: 40px;
+            background: rgba(20, 50, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 55px;
+            color: #39ff14;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.7);
+        }
+        p.subtitle {
+            font-size: 18px;
+            color: #ddd;
+            margin: 10px 0 40px;
+        }
+
+        /* 📦 गेम कार्ड्स का स्टाइल */
+        .game-card {
+            background: rgba(10, 30, 20, 0.8);
+            border-left: 5px solid #39ff14;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .game-details {
+            flex: 1;
+            padding-right: 20px;
+        }
+
+        .game-title {
+            font-family: 'Teko', sans-serif;
+            font-size: 28px;
+            color: #39ff14;
+            margin: 0 0 5px 0;
+            letter-spacing: 1px;
+        }
+
+        .game-desc {
+            font-size: 14px;
+            color: #ccc;
+            margin: 0 0 15px 0;
+        }
+
+        /* 🖼️ बिल्कुल असली और वर्किंग थंबनेल पिक्चर्स */
+        .game-thumb {
+            width: 110px;
+            height: 110px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid #39ff14;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.4);
+            margin-left: 15px;
+        }
+
+        /* डाउनलोड बटन */
+        .download-btn {
+            display: inline-block;
+            padding: 10px 25px;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            background-color: #ff0000;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+            text-transform: uppercase;
+        }
+        .download-btn:hover {
+            background-color: #cc0000;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- मेनू बार -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">होम</a></li>
+            <li><a href="games.html" class="active">गेम्स</a></li>
+            <li><a href="gallery.html">गैलरी</a></li>
+            <li><a href="about.html">हमारे बारे में</a></li>
+            <li><a href="contact.html">संपर्क करें</a></li>
+        </ul>
+    </nav>
+
+    <!-- मुख्य बॉक्स -->
+    <div class="container">
+        <h1>क्रिकेट गेम्स स्टोर</h1>
+        <p class="subtitle">अपने पसंदीदा गेम के डाउनलोड बटन पर क्लिक करें!</p>
+
+        <!-- 🎮 गेम 1 (नया पक्का काम करने वाला इमेज लिंक) -->
+        <div class="game-card">
+            <div class="game-details">
+                <h3 class="game-title">🏏 GAME CHANGERS 5 (GC5)</h3>
+                <p class="game-desc">शानदार 3D ग्राफिक्स और बेहतरीन टूर्नामेंट्स के साथ असली क्रिकेट का मजा लें।</p>
+                <a href="game_chenger_5.apk" class="download-btn">⬇️ गेम डाउनलोड करें</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=200&auto=format&fit=crop" class="game-thumb" alt="GC5">
+        </div>
+
+        <!-- 🎮 गेम 2 -->
+        <div class="game-card">
+            <div class="game-details">
+                <h3 class="game-title">🏆 रियल क्रिकेट (REAL CRICKET)</h3>
+                <p class="game-desc">स्टेडियम के चारों तरफ मैदान-फाड़ शॉट्स खेलें और वर्ल्ड कप ट्रॉफी अपने नाम करें।</p>
+                <a href="https://play.google.com/store/apps/details?id=com.nautilus.realcricket" class="download-btn">⬇️ गेम डाउनलोड करें</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1608245449230-4ac19066d2d0?q=80&w=200&auto=format&fit=crop" class="game-thumb" alt="Real Cricket">
+        </div>
+
+        <!-- 🎮 गेम 3 -->
+        <div class="game-card">
+            <div class="game-details">
+                <h3 class="game-title">🏟️ क्रिकेट लीग (CRICKET LEAGUE)</h3>
+                <p class="game-desc">अपनी गली के नियम और अपनी बैटिंग! बचपन के गली क्रिकेट के दिनों की यादें ताज़ा करें।</p>
+                <a href="https://play.google.com/store/apps/details?id=com.miniclip.cricketleague" class="download-btn">⬇️ गेम डाउनलोड करें</a>
+            </div>
+            <img src="images/Ms.jpg" class="game-thumb" alt="Cricket League">
+        </div>
+
+        <!-- 🎮 गेम 4 -->
+        <div class="game-card">
+            <div class="game-details">
+                <h3 class="game-title">⚡ INDIAN CRICKET LEGENDS GAME 26</h3>
+                <p class="game-desc">अपनी पसंदीदा टी20 आईपीएल टीम चुनें और मैदान पर चौके-छक्कों की बरसात करें।</p>
+                <a href="https://play.google.com/store/apps/details?id=com.pgs.cricket.game.indian.t20.league" class="download-btn">⬇️ गेम डाउनलोड करें</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1594470117722-de4b9a02ebed?q=80&w=200&auto=format&fit=crop" class="game-thumb" alt="Legends 26">
+        </div>
+
+        <!-- 🎮 गेम 5 -->
+        <div class="game-card">
+            <div class="game-details">
+                <h3 class="game-title">🎮 क्विक क्रिकेट मैच (ONLINE PLAY)</h3>
+                <p class="game-desc">बिना किसी डाउनलोड के तुरंत अपने वेब ब्राउज़र में लाइव क्रिकेट गेम खेलें।</p>
+                <a href="https://poki.com/en/g/cricket-superstar" class="download-btn">🎮 अभी खेलें</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?q=80&w=200&auto=format&fit=crop" class="game-thumb" alt="Online Play">
+        </div>
+
+    </div>
+
+</body>
+</html>
