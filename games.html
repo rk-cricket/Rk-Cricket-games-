@@ -169,20 +169,41 @@
             background-color: #cc0000;
             transform: scale(1.05);
         }
-        /* 📱 सिर्फ मोबाइल स्क्रीन के लिए स्पेशल सेटिंग्स */
-@media (max-width: 600px) {
-    .navbar padding: 10px 0; }
-    .navbar ul { display: flex; justify-content: space-around; padding: 0; }
-    .navbar li { margin: 0 5px; }
-    .navbar li a { font-size: 14px; font-weight: bold; }
-    
-    .container { 
-        margin: 90px 10px 30px; 
-        padding: 20px; 
-    }
-    h1 { font-size: 38px !important; }
-}
 
+        /* 📱 सिर्फ मोबाइल स्क्रीन के लिए स्पेशल सेटिंग्स - फिक्स्ड कोड */
+        @media (max-width: 600px) {
+            .navbar { padding: 10px 0; }
+            .navbar ul { display: flex; justify-content: space-around; padding: 0; }
+            .navbar li { margin: 0 5px; }
+            .navbar li a { font-size: 13px; font-weight: bold; }
+            
+            .container { 
+                margin: 90px 10px 30px; 
+                padding: 20px; 
+            }
+            h1 { font-size: 38px !important; }
+            p.subtitle { font-size: 14px; margin-bottom: 25px; }
+
+            /* मोबाइल में गेम डिब्बे सीधे (Vertical) हो जाएंगे */
+            .game-card {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding: 15px;
+            }
+            .game-details {
+                padding-right: 0;
+            }
+            .game-thumb {
+                margin-left: 0;
+                margin-bottom: 15px;
+                width: 120px;
+                height: 120px;
+            }
+            .download-btn {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
     </style>
 </head>
 <body>
@@ -203,7 +224,7 @@
         <h1>क्रिकेट गेम्स स्टोर</h1>
         <p class="subtitle">अपने पसंदीदा गेम के डाउनलोड बटन पर क्लिक करें!</p>
 
-        <!-- 🎮 गेम 1 (नया पक्का काम करने वाला इमेज लिंक) -->
+        <!-- 🎮 गेम 1 -->
         <div class="game-card">
             <div class="game-details">
                 <h3 class="game-title">🏏 GAME CHANGERS 5 (GC5)</h3>
